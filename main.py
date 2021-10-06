@@ -52,20 +52,48 @@ def get_age_in_days():
     print(delta.days)
 
 
+def is_palindrome(n) -> bool:
+    """
+    :param n: Un numar
+    :return: True daca n e palindrom si Flase daca nu este palindrom
+    """
+    aux = 0
+    number = n
+    while number>0:
+        aux = aux * 10 + number % 10
+        number = number // 10
+    if n == aux:
+        return True
+    else:
+        return False
+
+
+def test_is_palindrome():
+    assert is_palindrome(121) == True
+    assert is_palindrome(100) == False
+    assert is_palindrome(1) == True
+    assert is_palindrome(11) == True
+
+
 def main():
     while True:
         print(" ")
         print("1.Găsește ultimul număr prim mai mic decât un număr dat.)")
         print("2.Se dă data nașterii în formatul DD/MM/YYYY. Determinați vârsta persoanei în zile.")
-        print("3. Exit")
+        print("3.Determină dacă un număr dat este palindrom.")
+        print("4. Exit")
         Optiune = int(input("Alege o optiune "))
         if Optiune == 1:
             n = int(input("Alege un numar "))
             print(get_largest_prime_below(n))
-        elif Optiune == 3:
+        elif Optiune == 4:
             break
-        else:
+        elif Optiune == 2:
             get_age_in_days()
+        else:
+            n = int(input("Alege un numar "))
+            print(is_palindrome(n))
 
 test_get_largest_prime_below()
+test_is_palindrome()
 main()
