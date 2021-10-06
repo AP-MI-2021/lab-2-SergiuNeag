@@ -46,7 +46,7 @@ def get_age_in_days(zi, luna, an):
     d0 = date(an, luna, zi)
     d1 = date.today()
     delta = d1 - d0
-    print(delta.days)
+    return(delta.days)
 
 
 def test_get_age_in_days():
@@ -93,19 +93,13 @@ def main():
             zi = int(input("Ziua: "))
             luna = int(input("Luna: "))
             an = int(input("An:"))
-            get_age_in_days(zi, luna, an)
+            print(get_age_in_days(zi, luna, an))
         else:
             n = int(input("Alege un numar "))
             print(is_palindrome(n))
 if __name__ == '__main__':
     test_get_largest_prime_below()
     test_is_palindrome()
-    #test_get_age_in_days()
+    test_get_age_in_days()
 
     main()
-"""
-test_get_largest_prime_below()
-test_is_palindrome()
-test_get_age_in_days()
-main()
-"""
