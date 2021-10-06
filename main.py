@@ -38,18 +38,19 @@ def test_get_largest_prime_below():
     assert get_largest_prime_below(12) == 11
 
 
-def get_age_in_days():
+def get_age_in_days(zi, luna, an):
     """
     :return: Varsta in zile
     """
     from datetime import date
-    zi = int(input("Ziua: "))
-    luna = int(input("Luna: "))
-    an = int(input("An:"))
     d0 = date(an, luna, zi)
     d1 = date.today()
     delta = d1 - d0
     print(delta.days)
+
+
+def test_get_age_in_days():
+    assert get_age_in_days(5, 10, 2021) == 1
 
 
 def is_palindrome(n) -> bool:
@@ -89,11 +90,22 @@ def main():
         elif Optiune == 4:
             break
         elif Optiune == 2:
-            get_age_in_days()
+            zi = int(input("Ziua: "))
+            luna = int(input("Luna: "))
+            an = int(input("An:"))
+            get_age_in_days(zi, luna, an)
         else:
             n = int(input("Alege un numar "))
             print(is_palindrome(n))
+if __name__ == '__main__':
+    test_get_largest_prime_below()
+    test_is_palindrome()
+    #test_get_age_in_days()
 
+    main()
+"""
 test_get_largest_prime_below()
 test_is_palindrome()
+test_get_age_in_days()
 main()
+"""
